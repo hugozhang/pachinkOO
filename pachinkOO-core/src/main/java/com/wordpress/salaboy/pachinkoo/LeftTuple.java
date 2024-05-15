@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wordpress.salaboy.pachinkoo;
 
 import java.util.LinkedList;
@@ -12,7 +9,9 @@ import java.util.List;
  * @author salaboy
  */
 public class LeftTuple implements Tuple {
-    private LinkedList<Handle> handles = new LinkedList<Handle>();
+
+    private List<Handle> handles = new LinkedList<Handle>();
+
     private LeftTupleSink sink;
 
     public LeftTuple(Handle handle, LeftTupleSink sink) {
@@ -20,15 +19,17 @@ public class LeftTuple implements Tuple {
         handles.add(handle);
     }
 
+    @Override
     public Handle get(int pattern) {
         return handles.get(pattern);
     }
 
+    @Override
     public List<Handle> getFactHandles() {
-        
         return handles;
     }
 
+    @Override
     public int size() {
         return handles.size();
     }
@@ -37,8 +38,5 @@ public class LeftTuple implements Tuple {
     public String toString() {
         return "LeftTuple{" + "handles=" + handles + ", sink=" + sink + '}';
     }
-    
-    
-    
-    
+
 }

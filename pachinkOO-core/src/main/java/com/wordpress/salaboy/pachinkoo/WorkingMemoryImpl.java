@@ -12,32 +12,37 @@ import java.util.Map;
  * @author salaboy
  */
 public class WorkingMemoryImpl implements WorkingMemory {
+
     private Agenda agenda = new AgendaImpl();
+
     private Rete rete;
+
     private Map<Object, Object> assertStore;
 
     public WorkingMemoryImpl() {
         rete = new Rete(this);
         assertStore = new HashMap<Object, Object>();   
     }
-    
-    
+
+    @Override
     public Agenda getAgenda() {
         return this.agenda;
     }
 
+    @Override
     public int fireAllRules() {
         return this.agenda.fireAllRules();
     }
 
+    @Override
     public Rete getRete() {
         return rete;
     }
     
-    public Handle insert(Object object){
+    @Override
+    public void insert(Object object) {
        Handle handle = createHandle(object);
        rete.assertObject(handle, null, this);
-       return handle;
     }
 
     private Handle createHandle(Object object) {
@@ -50,6 +55,7 @@ public class WorkingMemoryImpl implements WorkingMemory {
         return assertStore.get(handle);
     }
 
+    @Override
     public Map<Object, Object> getAssertedFacts() {
         return assertStore;
     }

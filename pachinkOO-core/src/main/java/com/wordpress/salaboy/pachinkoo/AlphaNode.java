@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wordpress.salaboy.pachinkoo;
 
 import java.lang.reflect.InvocationTargetException;
@@ -13,26 +10,29 @@ import java.util.logging.Logger;
  *
  * @author salaboy
  */
-public class AlphaNode extends ObjectSource implements ObjectSink{
+public class AlphaNode extends ObjectSource implements ObjectSink {
     
-    private COMPARATOR comparator;
+    private Comparator comparator;
+
     private String fieldName;
+
     private String value;
 
-    public AlphaNode(COMPARATOR comparator, String fieldName, String value) {
+    public AlphaNode(Comparator comparator, String fieldName, String value) {
         this.comparator = comparator;
         this.fieldName = fieldName;
         this.value = value;
     }
     
     
+    @Override
     public void assertObject(Handle factHandle, PropagationContext propagationContext, WorkingMemory wm) {
         try {
             Object object = factHandle.getObject();
             Class clazz = object.getClass();
             Method method = clazz.getMethod("get"+fieldName);
             Object result = method.invoke(object);
-            if(((String)result).equals(value)){
+            if(result.toString().equals(value)){
                 sinkPropagator.propagateAssertObject(factHandle, propagationContext, wm);
             }
         } catch (IllegalAccessException ex) {
@@ -49,6 +49,7 @@ public class AlphaNode extends ObjectSource implements ObjectSink{
         
     }
 
+    @Override
     public long getId() {
         throw new UnsupportedOperationException("Not supported yet.");
     }

@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wordpress.salaboy.pachinkoo;
 
 import java.util.ArrayList;
@@ -12,27 +9,29 @@ import java.util.List;
  * @author salaboy
  */
 public class BetaMemory {
-    private List<LeftTuple>   leftTupleMemory = new ArrayList<LeftTuple>();
-    private List<RightTuple>  rightTupleMemory = new ArrayList<RightTuple>();
+
+    private List<LeftTuple> leftTuple = new ArrayList<LeftTuple>();
+
+    private List<RightTuple> rightTuple = new ArrayList<RightTuple>();
 
     public BetaMemory() {
     }
     
     
     public void addLeftTuple(LeftTuple tuple){
-        leftTupleMemory.add(tuple);
+        leftTuple.add(tuple);
     }
     
     public void addRightTuple(RightTuple tuple){
-        rightTupleMemory.add(tuple);
+        rightTuple.add(tuple);
     }
 
-    public List<LeftTuple> getLeftTupleMemory() {
-        return leftTupleMemory;
+    public List<LeftTuple> getLeftTuple() {
+        return leftTuple;
     }
 
-    public List<RightTuple> getRightTupleMemory() {
-        return rightTupleMemory;
+    public List<RightTuple> getRightTuple() {
+        return rightTuple;
     }
     
     

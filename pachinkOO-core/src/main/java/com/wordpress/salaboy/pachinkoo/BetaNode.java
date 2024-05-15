@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wordpress.salaboy.pachinkoo;
 
 import java.util.List;
@@ -10,7 +7,7 @@ import java.util.List;
  *
  * @author salaboy
  */
-public abstract class BetaNode extends LeftTupleSource implements ObjectSink, LeftTupleSink, RightTupleSink{
+public abstract class BetaNode extends LeftTupleSource implements ObjectSink, LeftTupleSink, RightTupleSink {
      /** The left input <code>TupleSource</code>. */
     //protected LeftTupleSource leftInput;
 
@@ -51,11 +48,11 @@ public abstract class BetaNode extends LeftTupleSource implements ObjectSink, Le
     }
     
     public List<LeftTuple> getLeftTuples(){
-       return getMemory().getLeftTupleMemory();
+       return getMemory().getLeftTuple();
     }
     
     public List<RightTuple> getRightTuples(){
-        return getMemory().getRightTupleMemory();
+        return getMemory().getRightTuple();
     }
     
     

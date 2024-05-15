@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wordpress.salaboy.pachinkoo;
 
 import com.wordpress.salaboy.pachinkoo.rhs.Action;
@@ -11,8 +8,11 @@ import com.wordpress.salaboy.pachinkoo.rhs.Action;
  * @author salaboy
  */
 public class Activation {
+
     private String ruleName;
+
     private Action action;
+
     private Tuple tuple;
 
     public Activation(String ruleName, Action action, Tuple tuple) {

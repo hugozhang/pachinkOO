@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wordpress.salaboy.pachinkoo;
 
 import java.util.ArrayList;
@@ -12,13 +9,17 @@ import java.util.List;
  * @author salaboy
  */
 public class CompositeLeftTupleSinkAdapter implements LeftTupleSinkPropagator {
+
     private List<LeftTupleSink> sinks = new ArrayList<LeftTupleSink>();
+
+    @Override
     public void propagateAssertLeftTuple(LeftTuple tuple, PropagationContext context, WorkingMemory wm) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
     public void createAndPropagateAssertLeftTuple(Handle factHandle, PropagationContext context, WorkingMemory wm) {
-        for(LeftTupleSink sink : sinks){
+        for(LeftTupleSink sink : sinks) {
             this.doPropagateAssertLeftTuple(context, sink , new LeftTuple(factHandle, sink), wm);         
         }
     }
@@ -28,10 +29,7 @@ public class CompositeLeftTupleSinkAdapter implements LeftTupleSinkPropagator {
                                               LeftTupleSink sink,
                                               LeftTuple leftTuple,
                                               WorkingMemory wm) {
-       
-        sink.assertLeftTuple( leftTuple,
-                              context, wm );
-       
+        sink.assertLeftTuple( leftTuple,context, wm );
     }
     
     protected void doPropagateAssertLeftTuple(PropagationContext context,
@@ -39,15 +37,11 @@ public class CompositeLeftTupleSinkAdapter implements LeftTupleSinkPropagator {
                                               LeftTuple leftTuple,
                                               RightTuple rightTuple,
                                               WorkingMemory wm) {
-       
-        
-        sink.assertLeftTuple( leftTuple,
-                              context, wm );
-       
+        sink.assertLeftTuple( leftTuple,context, wm );
     }
     
-    public void addTupleSink(final LeftTupleSink sink) {
-        this.sinks.add( (LeftTupleSink) sink );
+    public void addTupleSink(LeftTupleSink sink) {
+        this.sinks.add( sink );
     }
 
 }

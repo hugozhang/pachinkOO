@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wordpress.salaboy.pachinkoo;
 
 /**
@@ -14,10 +11,12 @@ public class JoinNode extends BetaNode {
         super(constraint);
     }
 
+    @Override
     public void assertObject(Handle factHandle, PropagationContext propagationContext, WorkingMemory wm) {
         RightTuple rightTuple = new RightTuple(factHandle, this);
-        getMemory().addRightTuple(rightTuple); //?? this to the rightTupleSink????
-        for (LeftTuple leftTuple : getMemory().getLeftTupleMemory()) {
+        //?? this to the rightTupleSink????
+        getMemory().addRightTuple(rightTuple);
+        for (LeftTuple leftTuple : getMemory().getLeftTuple()) {
             if(constraint instanceof EmptyBetaConstraints){
                 System.out.println("Left Tuple = "+leftTuple);
                 System.out.println("Right Tuple = "+rightTuple);
@@ -33,14 +32,15 @@ public class JoinNode extends BetaNode {
         }
     }
 
+    @Override
     public long getId() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
     public void assertLeftTuple(LeftTuple leftTuple, PropagationContext propagationContext, WorkingMemory wm) {
         getMemory().addLeftTuple(leftTuple);
-       
-        for (RightTuple rightTuple : getMemory().getRightTupleMemory()) {
+        for (RightTuple rightTuple : getMemory().getRightTuple()) {
             if(constraint instanceof EmptyBetaConstraints){
                 System.out.println("Left Tuple = "+leftTuple);
                 System.out.println("Right Tuple = "+rightTuple);

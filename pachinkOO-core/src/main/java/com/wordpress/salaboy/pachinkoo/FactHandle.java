@@ -1,25 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wordpress.salaboy.pachinkoo;
 
 /**
  *
  * @author salaboy
  */
-public class FactHandle implements Handle{
+public class FactHandle implements Handle {
+
     private Object object;
 
     public FactHandle(Object object) {
         this.object = object;
     }
-    
-    
+
+    @Override
     public long getId() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
     public Object getObject() {
         return object;
     }
@@ -32,7 +31,6 @@ public class FactHandle implements Handle{
     public String toString() {
         return "FactHandle{" + "object=" + object + '}';
     }
-    
     
     
 }

@@ -12,5 +12,5 @@ import com.wordpress.salaboy.pachinkoo.Tuple;
  * @author salaboy
  */
 public interface Action {
-    public void execute(Tuple tuple, PropagationContext context);
+    void execute(Tuple tuple, PropagationContext context);
 }

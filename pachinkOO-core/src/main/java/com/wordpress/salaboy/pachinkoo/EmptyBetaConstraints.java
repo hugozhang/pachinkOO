@@ -1,24 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wordpress.salaboy.pachinkoo;
 
 /**
  *
  * @author salaboy
  */
-public class EmptyBetaConstraints implements BetaConstraints{
+public class EmptyBetaConstraints implements BetaConstraints {
 
+    @Override
     public Object getField() {
         return null;
     }
 
+    @Override
     public Object getRestriction() {
        return null; 
     }
 
-    public COMPARATOR getComparator() {
+    @Override
+    public Comparator getComparator() {
         return null;
     }
     

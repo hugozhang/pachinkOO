@@ -12,13 +12,13 @@ import java.util.Map;
  */
 public interface WorkingMemory {
     
-    public Agenda getAgenda();
+    Agenda getAgenda();
     
-    public int fireAllRules();
+    int fireAllRules();
     
-    public Rete getRete();
+    Rete getRete();
     
-    public Handle insert(Object fact);
+    void insert(Object fact);
     
-    public Map<Object, Object> getAssertedFacts();
+    Map<Object, Object> getAssertedFacts();
 }
